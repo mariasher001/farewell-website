@@ -156,6 +156,7 @@ export default function MessageBoard() {
                 {messages.map((msg) => (
                   <motion.div
                     key={msg.id}
+                    layout
                     variants={{
                       hidden: { opacity: 0, y: 24 },
                       visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },

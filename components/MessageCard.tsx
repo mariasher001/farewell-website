@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Pencil, Trash2 } from 'lucide-react'
 import type { Message } from '@/lib/types'
 
@@ -33,12 +33,23 @@ function getInitials(name: string): string {
     .join('')
 }
 
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
 export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Props) {
   const [isEditing, setIsEditing] = useState(false)
   const [isConfirmingDelete, setIsConfirmingDelete] = useState(false)
   const [editName, setEditName] = useState(message.name)
   const [editMessage, setEditMessage] = useState(message.message)
   const [isSaving, setIsSaving] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const collapsed = !isExpanded && !isEditing
 
   async function handleSave() {
     if (!editName.trim() || !editMessage.trim()) return
@@ -63,9 +74,13 @@ export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Pr
   return (
     <motion.div
       layout
-      className="bg-white rounded-2xl border border-rose-100 shadow-sm p-6 relative h-full"
-      whileHover={{ y: -4, boxShadow: '0 8px 30px rgba(251,113,133,0.15)' }}
-      transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+      className={`bg-white rounded-2xl border border-rose-100 p-6 relative flex flex-col cursor-default
+        ${collapsed ? 'h-48 overflow-hidden' : 'overflow-visible'}
+        ${isExpanded && !isEditing ? 'shadow-xl shadow-rose-100/60 border-rose-200 z-10' : 'shadow-sm'}`}
+      onMouseEnter={() => { if (!isEditing) setIsExpanded(true) }}
+      onMouseLeave={() => setIsExpanded(false)}
+      animate={{ y: isExpanded && !isEditing ? -4 : 0 }}
+      transition={{ layout: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }, y: { duration: 0.2 } }}
     >
       {/* Owned card controls */}
       {isOwned && !isEditing && !isConfirmingDelete && (
@@ -108,7 +123,7 @@ export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Pr
         </div>
       )}
 
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-3 flex-1 min-h-0">
         {/* Avatar */}
         <div
           className={`w-10 h-10 rounded-full flex items-center justify-center font-outfit font-bold text-sm flex-shrink-0 ring-2 ring-white shadow-sm ${avatarColor}`}
@@ -153,12 +168,25 @@ export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Pr
             </div>
           ) : (
             <>
-              <p className="font-outfit font-semibold text-slate-700 text-sm mb-1.5 pr-14">
+              <p className="font-outfit font-semibold text-slate-700 text-sm mb-1.5 pr-14 truncate">
                 {message.name}
               </p>
-              <p className="font-inter text-slate-500 text-sm leading-relaxed">
+              <p className={`font-inter text-slate-500 text-sm leading-relaxed ${collapsed ? 'line-clamp-3' : ''}`}>
                 {message.message}
               </p>
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.p
+                    className="font-inter text-xs text-slate-400 mt-3"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {formatDate(message.created_at)}
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </>
           )}
         </div>
