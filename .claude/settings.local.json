@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(C:/Users/C5417111/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/scripts/start-server.sh --project-dir \"c:/Users/C5417111/Maria/Projects/farewell-website\")",
+      "Bash(\"C:/Users/C5417111/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh\" --project-dir \"c:/Users/C5417111/Maria/Projects/farewell-website\")",
+      "Read(//c/Users/C5417111/AppData/Roaming/**)",
+      "Read(//c/Program Files/**)",
+      "Read(//c//**)",
+      "Read(//c/Users/C5417111/**)",
+      "Bash(cmd.exe /c \"where node 2>&1\")",
+      "Bash(cmd.exe /c \"where node & where npm & where npx\")"
+    ]
+  }
+}
