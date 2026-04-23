@@ -129,12 +129,12 @@ export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Pr
               <textarea
                 value={editMessage}
                 onChange={(e) => setEditMessage(e.target.value)}
-                maxLength={280}
+                maxLength={1000}
                 rows={4}
                 className="w-full text-sm text-slate-600 border border-rose-200 rounded-lg px-2 py-1.5 resize-none focus:outline-none focus:ring-2 focus:ring-rose-300"
                 placeholder="Your message"
               />
-              <p className="text-xs text-slate-400 text-right">{editMessage.length}/280</p>
+              <p className="text-xs text-slate-400 text-right">{editMessage.length}/1000</p>
               <div className="flex gap-2 justify-end">
                 <button
                   onClick={handleCancelEdit}

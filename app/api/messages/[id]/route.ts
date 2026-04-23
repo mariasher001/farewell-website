@@ -16,9 +16,9 @@ export async function PUT(
         { status: 400 }
       )
     }
-    if (message.trim().length > 280) {
+    if (message.trim().length > 1000) {
       return NextResponse.json(
-        { error: 'message must be 280 characters or less' },
+        { error: 'message must be 1000 characters or less' },
         { status: 400 }
       )
     }

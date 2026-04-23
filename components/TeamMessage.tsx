@@ -14,17 +14,21 @@ export default function TeamMessage() {
           From the team
         </h2>
 
-        <blockquote className="font-outfit text-lg md:text-xl text-slate-600 leading-relaxed italic space-y-5">
+        <blockquote className="font-outfit text-lg md:text-xl text-slate-600 leading-relaxed italic space-y-6 text-left">
           <p>
-            &ldquo;Some people leave a job. You&apos;re leaving a hole in the heart of this team.
-            From the very first day you walked into DB PERF, you changed the energy in the room.
+            &ldquo;It&apos;s rare to work with someone who makes the team better just by being
+            in the room. That&apos;s exactly what you did.
           </p>
           <p>
-            You turned debugging sessions into learning moments. You made Mondays feel like
-            catching up with friends. You brought warmth to every standup, every incident,
-            every late-night fix.
+            You brought clarity to the chaos, patience to the pressure, and a kind of warmth
+            that turned DB PERF into more than a team name. Every one of us learned something
+            from you &mdash; whether we realized it at the time or not.
           </p>
-          <p>This isn&apos;t goodbye. It&apos;s just — see you around, legend.&rdquo;</p>
+          <p>
+            The team you&apos;re joining is lucky, and they&apos;ll figure that out fast. We
+            already know. Different team, same building &mdash; but we&apos;re still going to
+            miss having you on this side.&rdquo;
+          </p>
         </blockquote>
 
         <div className="mt-10 font-inter text-slate-400 text-sm">

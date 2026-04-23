@@ -39,7 +39,7 @@ export default function Closing() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Until we meet again, legend.
+          Proud to have been your team. Now go be someone else&apos;s unfair advantage.
         </motion.h2>
 
         <motion.p

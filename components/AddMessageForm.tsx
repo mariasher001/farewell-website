@@ -89,7 +89,7 @@ export default function AddMessageForm({ onAdd, onCancel }: Props) {
                 Your Message
               </label>
               <span className="text-xs text-slate-400 font-inter">
-                {messageText.length}/280
+                {messageText.length}/1000
               </span>
             </div>
             <textarea
@@ -97,7 +97,7 @@ export default function AddMessageForm({ onAdd, onCancel }: Props) {
               value={messageText}
               onChange={(e) => setMessageText(e.target.value)}
               required
-              maxLength={280}
+              maxLength={1000}
               rows={4}
               placeholder="Share a memory, a thank you, or your best wishes…"
               className="w-full border border-rose-100 rounded-xl px-4 py-3 text-sm text-slate-600 font-inter resize-none focus:outline-none focus:ring-2 focus:ring-rose-300 placeholder:text-slate-300"

@@ -61,9 +61,28 @@ export default function Hero() {
           <span>🌟</span>
         </h1>
 
-        <p className="font-inter text-lg md:text-xl text-slate-500 mb-12 leading-relaxed">
-          You didn&apos;t just work with us — you made us better. Thank you for everything.
-        </p>
+        <motion.p
+          className="font-inter text-lg md:text-xl text-slate-500 mb-12 leading-relaxed"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          The best teams are built by people like you &mdash; Thank you for everything.{' '}
+          {['🎉', '✨', '🥳', '💫', '🎊'].map((emoji, i) => (
+            <motion.span
+              key={emoji}
+              className="inline-block"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: [0, -8, 0] }}
+              transition={{
+                opacity: { delay: 0.7 + i * 0.1, duration: 0.3 },
+                y: { delay: 0.7 + i * 0.1, duration: 1.2, repeat: Infinity, ease: 'easeInOut', repeatDelay: i * 0.3 },
+              }}
+            >
+              {emoji}
+            </motion.span>
+          ))}
+        </motion.p>
 
         <motion.a
           href="#messages"
