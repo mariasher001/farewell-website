@@ -44,8 +44,11 @@ export default function MessageBoard() {
   async function fetchMessages() {
     try {
       const res = await fetch('/api/messages')
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data: Message[] = await res.json()
       setMessages(data)
+    } catch {
+      // keep messages as empty array on failure
     } finally {
       setIsLoading(false)
     }
@@ -108,6 +111,7 @@ export default function MessageBoard() {
         <div className="flex justify-center mb-8">
           <motion.button
             onClick={() => setShowForm((v) => !v)}
+            aria-expanded={showForm}
             className="inline-flex items-center gap-2 bg-white border border-rose-200 text-rose-500 font-inter font-semibold px-6 py-3 rounded-2xl shadow-sm hover:bg-rose-50 transition-colors"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}

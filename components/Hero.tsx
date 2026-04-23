@@ -19,7 +19,7 @@ export default function Hero() {
           { w: 70, l: '85%', t: '30%', delay: 2 },
         ].map((blob, i) => (
           <motion.div
-            key={i}
+            key={blob.delay}
             className="absolute rounded-full"
             style={{
               width: blob.w,
@@ -74,7 +74,7 @@ export default function Hero() {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
         >
-          <Heart size={18} />
+          <Heart size={18} aria-hidden={true} />
           Read Messages
         </motion.a>
       </motion.div>

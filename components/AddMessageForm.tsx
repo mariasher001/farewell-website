@@ -45,7 +45,7 @@ export default function AddMessageForm({ onAdd, onCancel }: Props) {
           message: created.message,
           created_at: created.created_at,
         },
-        created.token
+        token
       )
     } catch {
       setError('Failed to submit. Please try again.')
@@ -70,10 +70,11 @@ export default function AddMessageForm({ onAdd, onCancel }: Props) {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5 font-inter">
+            <label htmlFor="wish-name" className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5 font-inter">
               Your Name
             </label>
             <input
+              id="wish-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -84,7 +85,7 @@ export default function AddMessageForm({ onAdd, onCancel }: Props) {
 
           <div>
             <div className="flex justify-between items-center mb-1.5">
-              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide font-inter">
+              <label htmlFor="wish-message" className="text-xs font-semibold text-slate-500 uppercase tracking-wide font-inter">
                 Your Message
               </label>
               <span className="text-xs text-slate-400 font-inter">
@@ -92,6 +93,7 @@ export default function AddMessageForm({ onAdd, onCancel }: Props) {
               </span>
             </div>
             <textarea
+              id="wish-message"
               value={messageText}
               onChange={(e) => setMessageText(e.target.value)}
               required

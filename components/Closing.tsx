@@ -16,7 +16,7 @@ export default function Closing() {
     <section className="py-28 px-6 bg-gradient-to-br from-rose-50 via-amber-50 to-orange-50 relative overflow-hidden">
       {FLOATERS.map((f, i) => (
         <motion.span
-          key={i}
+          key={f.emoji}
           className="absolute text-2xl select-none pointer-events-none"
           style={{ left: f.left, top: f.top }}
           animate={{ y: [0, -14, 0], rotate: [0, 6, -6, 0] }}

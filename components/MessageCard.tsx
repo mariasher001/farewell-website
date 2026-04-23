@@ -43,9 +43,12 @@ export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Pr
   async function handleSave() {
     if (!editName.trim() || !editMessage.trim()) return
     setIsSaving(true)
-    await onUpdate(message.id, editName.trim(), editMessage.trim())
-    setIsEditing(false)
-    setIsSaving(false)
+    try {
+      await onUpdate(message.id, editName.trim(), editMessage.trim())
+      setIsEditing(false)
+    } finally {
+      setIsSaving(false)
+    }
   }
 
   function handleCancelEdit() {

@@ -26,7 +26,7 @@ export default function Highlights() {
         <div className="space-y-5">
           {highlights.map(({ Icon, text }, i) => (
             <motion.div
-              key={i}
+              key={text}
               className="flex items-center gap-5 p-5 bg-white rounded-2xl border border-rose-100 shadow-sm"
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
