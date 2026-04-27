@@ -40,6 +40,9 @@ export async function PUT(request: Request) {
        RETURNING name, message, updated_at`,
       [name.trim(), message.trim()]
     )
+    if (rows.length === 0) {
+      return NextResponse.json({ error: 'Manager message not found' }, { status: 404 })
+    }
     return NextResponse.json(rows[0])
   } catch {
     return NextResponse.json({ error: 'Failed to update manager message' }, { status: 500 })

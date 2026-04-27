@@ -48,12 +48,15 @@ export default function ManagerMessage() {
         body: JSON.stringify({ name: editName.trim(), message: editMessage.trim() }),
       })
       if (!res.ok) {
-        const d = await res.json()
-        setError(d.error ?? 'Failed to save')
+        let msg = 'Failed to save'
+        try { msg = (await res.json()).error ?? msg } catch { /* non-JSON error body */ }
+        setError(msg)
         return
       }
       const updated = await res.json()
       setData(updated)
+      setEditName(updated.name)
+      setEditMessage(updated.message)
       setIsEditing(false)
     } catch {
       setError('Failed to save. Please try again.')
@@ -104,7 +107,7 @@ export default function ManagerMessage() {
                 value={editName}
                 onChange={(e) => setEditName(e.target.value)}
                 className="w-full text-sm font-semibold text-slate-700 border border-rose-200 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-rose-300 font-inter"
-                placeholder="Manager&apos;s name"
+                placeholder="Manager's name"
               />
               <textarea
                 value={editMessage}
@@ -112,7 +115,7 @@ export default function ManagerMessage() {
                 maxLength={1000}
                 rows={5}
                 className="w-full text-sm text-slate-600 border border-rose-200 rounded-lg px-2 py-1.5 resize-none focus:outline-none focus:ring-2 focus:ring-rose-300 font-inter"
-                placeholder="Manager&apos;s message"
+                placeholder="Manager's message"
               />
               <p className="text-xs text-slate-400 text-right font-inter">
                 {editMessage.length}/1000
