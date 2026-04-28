@@ -1,15 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Coffee, Heart, Star, Users, Zap } from 'lucide-react'
+import { Clock, Code2, Flame, Heart, MapPin, Users } from 'lucide-react'
 
 const highlights = [
-  { Icon: Code2, text: 'Turned every debugging session into a learning moment' },
-  { Icon: Coffee, text: 'Made Mondays feel like catching up with friends' },
-  { Icon: Heart, text: 'Brought warmth to every standup and late-night incident' },
-  { Icon: Star, text: 'Left the codebase better than you found it — always' },
-  { Icon: Users, text: 'The person the team called when nothing made sense' },
-  { Icon: Zap, text: 'Made performance feel personal, not just technical' },
+  { Icon: Clock,  text: '11+ years of dedication to the SF DBops team — a tenure built on trust and results' },
+  { Icon: Flame,  text: 'Brought the kind of tenacity and drive the whole team fed off, every single day' },
+  { Icon: Heart,  text: 'Made every newcomer feel at home from the very first day on site' },
+  { Icon: Code2,  text: 'Made performance feel personal — left every system better than you found it' },
+  { Icon: Users,  text: 'No drama, no chasing — owned every task and saw it through without being asked twice' },
+  { Icon: MapPin, text: 'Built bonds across continents — Budapest, the EU team, and beyond will miss you' },
 ]
 
 export default function Highlights() {
