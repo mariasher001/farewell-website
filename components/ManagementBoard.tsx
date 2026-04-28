@@ -79,13 +79,34 @@ export default function ManagementBoard() {
   }
 
   return (
-    <section className="py-20 px-6 bg-rose-50/40">
-      <div className="max-w-3xl mx-auto">
+    <section className="relative py-20 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+      {/* Decorative floating orbs */}
+      <motion.div
+        className="absolute top-[-80px] left-[-80px] w-80 h-80 rounded-full bg-rose-500/20 blur-3xl pointer-events-none"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute bottom-[-60px] right-[-60px] w-72 h-72 rounded-full bg-amber-400/15 blur-3xl pointer-events-none"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+      />
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-violet-500/10 blur-3xl pointer-events-none"
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+      />
+
+      {/* Decorative large quote marks */}
+      <span className="absolute top-8 left-6 font-outfit text-[10rem] leading-none text-white/5 select-none pointer-events-none">&ldquo;</span>
+      <span className="absolute bottom-4 right-6 font-outfit text-[10rem] leading-none text-white/5 select-none pointer-events-none">&rdquo;</span>
+
+      <div className="relative max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-outfit text-3xl md:text-4xl font-extrabold text-slate-800 mb-3">
+          <h2 className="font-outfit text-3xl md:text-4xl font-extrabold text-white mb-3">
             From the Management
           </h2>
-          <p className="font-inter text-slate-500">
+          <p className="font-inter text-slate-400">
             A few words from leadership
           </p>
         </div>
@@ -94,7 +115,7 @@ export default function ManagementBoard() {
           <motion.button
             onClick={() => setShowForm((v) => !v)}
             aria-expanded={showForm}
-            className="inline-flex items-center gap-2 bg-white border border-rose-200 text-rose-500 font-inter font-semibold px-6 py-3 rounded-2xl shadow-sm hover:bg-rose-50 transition-colors"
+            className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-inter font-semibold px-6 py-3 rounded-2xl shadow-sm hover:bg-white/20 transition-colors backdrop-blur-sm"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >

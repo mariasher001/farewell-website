@@ -159,7 +159,7 @@ export default function ManagementCard({ message, onUpdate, onDelete }: Props) {
 
           {/* Content */}
           <div className="flex-1 min-w-0 pr-8">
-            <p className="font-outfit font-bold text-slate-800 text-lg leading-snug mb-0.5">
+            <p className="font-outfit font-bold text-rose-500 text-lg leading-snug mb-0.5">
               {message.name}
             </p>
             <p className="font-inter text-xs text-slate-400 mb-4">
