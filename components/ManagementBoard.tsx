@@ -7,16 +7,16 @@ import ManagementCard from './ManagementCard'
 import type { Message } from '@/lib/types'
 
 const BUBBLES = [
-  { size: 14, left: '8%',  delay: 0,   duration: 8  },
-  { size: 22, left: '18%', delay: 1.5, duration: 11 },
-  { size: 10, left: '32%', delay: 3,   duration: 7  },
-  { size: 18, left: '45%', delay: 0.5, duration: 10 },
-  { size: 26, left: '58%', delay: 2,   duration: 13 },
-  { size: 12, left: '70%', delay: 4,   duration: 9  },
-  { size: 20, left: '80%', delay: 1,   duration: 12 },
-  { size: 8,  left: '90%', delay: 2.5, duration: 6  },
-  { size: 16, left: '25%', delay: 5,   duration: 10 },
-  { size: 24, left: '65%', delay: 3.5, duration: 14 },
+  { size: 40,  left: '5%',  delay: 0,   duration: 8,  color: 'border-rose-400/60' },
+  { size: 60,  left: '15%', delay: 1.5, duration: 11, color: 'border-amber-400/60' },
+  { size: 28,  left: '28%', delay: 3,   duration: 7,  color: 'border-pink-400/60' },
+  { size: 50,  left: '42%', delay: 0.5, duration: 10, color: 'border-violet-400/60' },
+  { size: 70,  left: '55%', delay: 2,   duration: 13, color: 'border-rose-300/50' },
+  { size: 35,  left: '68%', delay: 4,   duration: 9,  color: 'border-amber-300/60' },
+  { size: 55,  left: '78%', delay: 1,   duration: 12, color: 'border-pink-300/60' },
+  { size: 25,  left: '88%', delay: 2.5, duration: 6,  color: 'border-violet-300/60' },
+  { size: 45,  left: '22%', delay: 5,   duration: 10, color: 'border-rose-400/50' },
+  { size: 65,  left: '62%', delay: 3.5, duration: 14, color: 'border-amber-400/50' },
 ]
 
 export default function ManagementBoard() {
@@ -114,9 +114,9 @@ export default function ManagementBoard() {
       {BUBBLES.map((b, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full border border-white/20 pointer-events-none"
+          className={`absolute rounded-full border-2 pointer-events-none ${b.color}`}
           style={{ width: b.size, height: b.size, left: b.left, bottom: '-10%' }}
-          animate={{ y: [0, -(550 + b.size * 10)], opacity: [0, 0.6, 0.6, 0] }}
+          animate={{ y: [0, -(600 + b.size * 8)], opacity: [0, 0.9, 0.9, 0] }}
           transition={{
             duration: b.duration,
             delay: b.delay,
