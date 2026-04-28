@@ -10,6 +10,7 @@ interface Props {
   isOwned: boolean
   onUpdate: (id: string, name: string, message: string) => Promise<void>
   onDelete: (id: string) => Promise<void>
+  cardHeight?: string
 }
 
 const AVATAR_COLORS = [
@@ -41,7 +42,7 @@ function formatDate(dateStr: string): string {
   })
 }
 
-export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Props) {
+export default function MessageCard({ message, isOwned, onUpdate, onDelete, cardHeight = 'h-48' }: Props) {
   const [isEditing, setIsEditing] = useState(false)
   const [isConfirmingDelete, setIsConfirmingDelete] = useState(false)
   const [editName, setEditName] = useState(message.name)
@@ -75,7 +76,7 @@ export default function MessageCard({ message, isOwned, onUpdate, onDelete }: Pr
     <motion.div
       layout
       className={`bg-white rounded-2xl border border-rose-100 p-6 relative flex flex-col cursor-default
-        ${collapsed ? 'h-48 overflow-hidden' : 'overflow-visible'}
+        ${collapsed ? `${cardHeight} overflow-hidden` : 'overflow-visible'}
         ${isExpanded && !isEditing ? 'shadow-xl shadow-rose-100/60 border-rose-200 z-10' : 'shadow-sm'}`}
       onMouseEnter={() => { if (!isEditing) setIsExpanded(true) }}
       onMouseLeave={() => setIsExpanded(false)}

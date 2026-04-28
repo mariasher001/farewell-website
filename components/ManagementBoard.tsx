@@ -80,7 +80,7 @@ export default function ManagementBoard() {
 
   return (
     <section className="py-20 px-6 bg-rose-50/40">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="font-outfit text-3xl md:text-4xl font-extrabold text-slate-800 mb-3">
             From the Management
@@ -178,7 +178,7 @@ export default function ManagementBoard() {
           </div>
         ) : (
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
             initial="hidden"
             animate="visible"
             variants={{ visible: { transition: { staggerChildren: 0.08 } }, hidden: {} }}
@@ -197,6 +197,7 @@ export default function ManagementBoard() {
                   <MessageCard
                     message={msg}
                     isOwned={true}
+                    cardHeight="h-64"
                     onUpdate={handleUpdate}
                     onDelete={handleDelete}
                   />
