@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Clock, Code2, Flame, Heart, MapPin, Users } from 'lucide-react'
+import { BookOpen, Code2, Flame, Heart, MapPin, Users } from 'lucide-react'
 
 const highlights = [
-  { Icon: Clock,  text: '11+ years of dedication to the SF DBops team — a tenure built on trust and results' },
+  { Icon: BookOpen, text: 'Shared knowledge freely and made the whole team feel like a second home' },
   { Icon: Flame,  text: 'Brought the kind of tenacity and drive the whole team fed off, every single day' },
   { Icon: Heart,  text: 'Made every newcomer feel at home from the very first day on site' },
   { Icon: Code2,  text: 'Made performance feel personal — left every system better than you found it' },
