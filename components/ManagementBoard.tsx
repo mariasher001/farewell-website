@@ -6,6 +6,19 @@ import { Plus } from 'lucide-react'
 import ManagementCard from './ManagementCard'
 import type { Message } from '@/lib/types'
 
+const BUBBLES = [
+  { size: 14, left: '8%',  delay: 0,   duration: 8  },
+  { size: 22, left: '18%', delay: 1.5, duration: 11 },
+  { size: 10, left: '32%', delay: 3,   duration: 7  },
+  { size: 18, left: '45%', delay: 0.5, duration: 10 },
+  { size: 26, left: '58%', delay: 2,   duration: 13 },
+  { size: 12, left: '70%', delay: 4,   duration: 9  },
+  { size: 20, left: '80%', delay: 1,   duration: 12 },
+  { size: 8,  left: '90%', delay: 2.5, duration: 6  },
+  { size: 16, left: '25%', delay: 5,   duration: 10 },
+  { size: 24, left: '65%', delay: 3.5, duration: 14 },
+]
+
 export default function ManagementBoard() {
   const [messages, setMessages] = useState<Message[]>([])
   const [showForm, setShowForm] = useState(false)
@@ -96,6 +109,23 @@ export default function ManagementBoard() {
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
       />
+
+      {/* Floating bubbles */}
+      {BUBBLES.map((b, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full border border-white/20 pointer-events-none"
+          style={{ width: b.size, height: b.size, left: b.left, bottom: '-10%' }}
+          animate={{ y: [0, -(550 + b.size * 10)], opacity: [0, 0.6, 0.6, 0] }}
+          transition={{
+            duration: b.duration,
+            delay: b.delay,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            times: [0, 0.1, 0.85, 1],
+          }}
+        />
+      ))}
 
       {/* Decorative large quote marks */}
       <span className="absolute top-8 left-6 font-outfit text-[10rem] leading-none text-white/5 select-none pointer-events-none">&ldquo;</span>
