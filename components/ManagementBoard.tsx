@@ -79,7 +79,7 @@ export default function ManagementBoard() {
   }
 
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <section id="management" className="relative py-20 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
       {/* Decorative floating orbs */}
       <motion.div
         className="absolute top-[-80px] left-[-80px] w-80 h-80 rounded-full bg-rose-500/20 blur-3xl pointer-events-none"

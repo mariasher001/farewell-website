@@ -85,7 +85,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.a
-          href="#messages"
+          href="#management"
           className="inline-flex items-center gap-2 bg-rose-400 hover:bg-rose-500 text-white font-inter font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-rose-200 transition-colors"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
