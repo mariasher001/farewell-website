@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
-import MessageCard from './MessageCard'
+import ManagementCard from './ManagementCard'
 import type { Message } from '@/lib/types'
 
 export default function ManagementBoard() {
@@ -177,34 +177,18 @@ export default function ManagementBoard() {
             Loading…
           </div>
         ) : (
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-            initial="hidden"
-            animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.08 } }, hidden: {} }}
-          >
-            <AnimatePresence>
+          <AnimatePresence>
+            <div className="space-y-6">
               {messages.map((msg) => (
-                <motion.div
+                <ManagementCard
                   key={msg.id}
-                  layout
-                  variants={{
-                    hidden: { opacity: 0, y: 24 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
-                  }}
-                  exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                >
-                  <MessageCard
-                    message={msg}
-                    isOwned={true}
-                    cardHeight="h-64"
-                    onUpdate={handleUpdate}
-                    onDelete={handleDelete}
-                  />
-                </motion.div>
+                  message={msg}
+                  onUpdate={handleUpdate}
+                  onDelete={handleDelete}
+                />
               ))}
-            </AnimatePresence>
-          </motion.div>
+            </div>
+          </AnimatePresence>
         )}
       </div>
     </section>
