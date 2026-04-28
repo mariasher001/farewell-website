@@ -1,6 +1,6 @@
 import Hero from '@/components/Hero'
+import ManagementBoard from '@/components/ManagementBoard'
 import MessageBoard from '@/components/MessageBoard'
-import ManagerMessage from '@/components/ManagerMessage'
 import TeamMessage from '@/components/TeamMessage'
 import Highlights from '@/components/Highlights'
 import Closing from '@/components/Closing'
@@ -12,7 +12,7 @@ export default function Home() {
     <main>
       <ConfettiBlast />
       <Hero />
-      <ManagerMessage />
+      <ManagementBoard />
       <MessageBoard />
       <TeamMessage />
       <Highlights />
